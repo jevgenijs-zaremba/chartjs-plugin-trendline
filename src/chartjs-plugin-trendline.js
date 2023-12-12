@@ -144,6 +144,8 @@ const addFitter = (datasetMeta, ctx, dataset, xScale, yScale) => {
 
     if (lineStyle === 'dotted') {
         ctx.setLineDash([2, 3]); // Dotted
+    } else if (lineStyle === 'dashed') {
+        ctx.setLineDash([8, 3]); // Dashed
     } else {
         ctx.setLineDash([]); // Solid
     }
@@ -243,4 +245,4 @@ if (typeof window !== 'undefined' && window.Chart) {
 // Otherwise, try to export the plugin
 try {
     module.exports = exports = pluginTrendlineLinear;
-} catch (e) {}
+} catch (e) { }
