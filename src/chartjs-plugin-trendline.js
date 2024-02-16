@@ -75,7 +75,9 @@ const addFitter = (datasetMeta, ctx, dataset, xScale, yScale) => {
         if (['time', 'timeseries'].includes(xScale.options.type)) {
             let x = data[xAxisKey] != null ? data[xAxisKey] : data.t;
             if (x !== undefined) {
-                fitter.add(new Date(x).getTime(), data[yAxisKey]);
+                let timezoneOffset = new Date().getTimezoneOffset() * 60000; // Convert offset to milliseconds
+                let utcTimestamp = new Date(x).getTime() + timezoneOffset;
+                fitter.add(utcTimestamp, data[yAxisKey]);
             } else {
                 fitter.add(index, data);
             }
