@@ -55,8 +55,8 @@ const addFitter = (datasetMeta, ctx, dataset, xScale, yScale) => {
 
     const parsing = typeof datasetMeta.controller.chart.options.parsing === "object" ?
         datasetMeta.controller.chart.options.parsing : undefined;
-    const xAxisKey = dataset.trendlineLinear.xAxisKey ? dataset.trendlineLinear.xAxisKey : dataset.parsing.xAxisKey ? dataset.parsing.xAxisKey : parsing ? parsing.xAxisKey : "x";
-    const yAxisKey = dataset.trendlineLinear.yAxisKey ? dataset.trendlineLinear.yAxisKey : dataset.parsing.yAxisKey ? dataset.parsing.yAxisKey : parsing ? parsing.yAxisKey : "y";
+    const xAxisKey = dataset.trendlineLinear?.xAxisKey ? dataset.trendlineLinear.xAxisKey : dataset.parsing?.xAxisKey ? dataset.parsing.xAxisKey : parsing ? parsing.xAxisKey : "x";
+    const yAxisKey = dataset.trendlineLinear?.yAxisKey ? dataset.trendlineLinear.yAxisKey : dataset.parsing?.yAxisKey ? dataset.parsing.yAxisKey : parsing ? parsing.yAxisKey : "y";
 
     lineWidth = lineWidth !== undefined ? lineWidth : 3;
 
